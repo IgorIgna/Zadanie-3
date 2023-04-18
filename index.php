@@ -25,7 +25,6 @@ if (!empty($_POST['Submit'])) {
         echo "<br><h1>Błąd w loginie lub haśle</h1>";
     }
 }
-mysqli_close($db);
 ?>
 
 <!DOCTYPE html>
