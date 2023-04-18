@@ -3,11 +3,11 @@ id int primary key autoincrement
 username varchar
 password varchar -->
 <?php
-$serwer='localhost';
-$uz='root';
-$haslo='';
-$baza='users';
-$db = new mysqli($serwer, $uz, $haslo, $baza);
+$server='localhost';
+$user='root';
+$pass='';
+$datab='users';
+$db = new mysqli($server, $user, $pass, $datab);
 
 if($db->connect_error) {
     die("Błąd połączenia: ". $db->connect_error); 
@@ -15,9 +15,9 @@ if($db->connect_error) {
 
 if (!empty($_POST['Submit'])) {
     $log=$_POST['login'];
-    $has=$_POST['haslo'];
-    $p="SELECT * FROM users WHERE username='$log' AND password='$has'";
-    $w=mysqli_query($db, $p);
+    $pss=$_POST['password'];
+    $q="SELECT * FROM users WHERE username='$log' AND password='$pss'";
+    $w=mysqli_query($db, $q);
     if (mysqli_num_rows($w) > 0) {
         echo "<h1>Poprawne Login i Hasło</h1><br>";
         echo "Witamy ".$_POST['login'];
@@ -40,7 +40,7 @@ if (!empty($_POST['Submit'])) {
         <h3>Podaj Login:</h3> <input type="text" name="login">
         <br>
 
-        <h3>Podaj Hasło:</h3> <input type="password" name="haslo">
+        <h3>Podaj Hasło:</h3> <input type="password" name="password">
         <br>
 
         <br>
