@@ -14,13 +14,10 @@ if($db->connect_error) {
 } 
 
 if (!empty($_POST['Submit'])) {
-
     $log=$_POST['login'];
     $has=$_POST['haslo'];
-
     $p="SELECT * FROM users WHERE username='$log' AND password='$has'";
     $w=mysqli_query($db, $p);
-
     if (mysqli_num_rows($w) > 0) {
         echo "<h1>Poprawne Login i Hasło</h1><br>";
         echo "Witamy ".$_POST['login'];
