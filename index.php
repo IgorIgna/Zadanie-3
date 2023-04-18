@@ -14,9 +14,9 @@ if($db->connect_error) {
 } 
 
 if (!empty($_POST['Submit'])) {
-    $log=$_POST['login'];
+    $un=$_POST['username'];
     $pss=$_POST['password'];
-    $q="SELECT * FROM users WHERE username='$log' AND password='$pss'";
+    $q="SELECT * FROM users WHERE username='$un' AND password='$pss'";
     $w=mysqli_query($db, $q);
     if (mysqli_num_rows($w) > 0) {
         echo "<h1>Poprawne Login i Hasło</h1><br>";
@@ -37,7 +37,7 @@ if (!empty($_POST['Submit'])) {
 </head>
 <body>
     <form action="" method="post">
-        <h3>Podaj Login:</h3> <input type="text" name="login">
+        <h3>Podaj Login:</h3> <input type="text" name="username">
         <br>
 
         <h3>Podaj Hasło:</h3> <input type="password" name="password">
